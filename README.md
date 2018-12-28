@@ -13,18 +13,18 @@ class Post: #родительский класс
         self.date = "{0:%Y-%m-%d %H:%M:%S}".format(datetime.datetime.now())
         self.comments = list()
 
-    @property
+    @property #Механизм свойств позволяет объявлять атрибуты, значение которых вычисляется в момент обращения.
     def content(self):
         return self._content
 
     def add_comment(self, comment):
         self.comments.append(comment)
 
-    @content.setter
+    @content.setter #можем придавать значения
     def content(self, content):
         self._content = content
 
-    @content.getter
+    @content.getter #можем возвращать контент
     def content(self):
         return self._content
 
