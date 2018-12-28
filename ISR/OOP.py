@@ -2,7 +2,7 @@ class Post: #родительский класс
     def __init__(self, author, content):
         import datetime
         self.author = author
-        self._content = content
+        self._content = content #контент поста полускрытый
         self.date = "{0:%Y-%m-%d %H:%M:%S}".format(datetime.datetime.now())
         self.comments = list()
 
@@ -34,7 +34,9 @@ class Post: #родительский класс
 
 class Comment(Post):
     def __init__(self, author, content):
-        super(Comment, self).__init__(author=author, content=content)
+        Post.__init__(self, author = author, content = content)
+        #super(Comment, self).__init__(author=author, content=content)
+        
 
 
 if __name__ == "__main__":
@@ -44,6 +46,5 @@ if __name__ == "__main__":
 
     print("POST")
     post.show()
-    print()
     print("COMMENTS")
     post.show_comments()
